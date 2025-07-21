@@ -556,7 +556,7 @@ const projects = [
 - **云开发**: 基于微信云开发平台
 - **用户体验**: 流畅的移动端体验
 - **数据安全**: 微信官方数据安全保障`,
-        image: '/assets/myapp-miniprogram.svg',
+        image: '/assets/miniprogram-login.png',
         category: 'mobile',
         tags: ['微信小程序', 'JavaScript', '云开发', 'WXML'],
         github: 'https://github.com/wenhuilan/22-QG-headend/tree/master/%E6%8B%9B%E6%96%B0%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%A1%B9%E7%9B%AE/myApp',
@@ -565,9 +565,31 @@ const projects = [
         stars: 1,
         views: 78,
         screenshots: [
-            '/assets/miniprogram-login.png',
-            '/assets/miniprogram-signup.png',
-            '/assets/miniprogram-admin.png',
+            {
+                title: '登录界面',
+                description: '登录界面',
+                image: '/assets/miniprogram-login.png',
+            },
+            {
+                title: '入口界面',
+                description: '入口界面',
+                image: '/assets/miniprogram-home.png',
+            },
+            {
+                title: '主页界面',
+                description: '主页界面',
+                image: '/assets/miniprogram-main.png',
+            },
+            {
+                title: '活动界面',
+                description: '活动界面',
+                image: '/assets/miniprogram-activity.png',
+            },
+            {
+                title: '预约管理界面',
+                description: '预约管理界面',
+                image: '/assets/miniprogram-appointment.png',
+            }
         ],
         features: [
             '微信授权登录',

@@ -30,7 +30,7 @@ const projects = [
         slug: 'oxygen-blog',
         title: 'Oxygen Blog 博客平台',
         description: '基于 Next.js 15、TypeScript 和 Markdown 的现代化个人博客平台，支持多主题、响应式设计、内容管理和静态导出。',
-        image: '/assets/oxygen-blog.svg',
+        image: '/assets/blog.jpg',
         category: 'webapp',
         tags: ['Next.js', 'TypeScript', 'Markdown', 'Tailwind CSS'],
         github: 'https://github.com/wenhuilan/NexusMarkdown',
@@ -45,7 +45,7 @@ const projects = [
         slug: 'doccollab',
         title: 'DocCollab 协同富文本编辑器',
         description: '基于 React + NestJS 的协同知识库系统，支持实时协作、富文本编辑、版本历史等功能。',
-        image: '/assets/doccollab.svg',
+        image: '/assets/doccollab.jpg',
         category: 'fullstack',
         tags: ['React', 'NestJS', 'MongoDB', 'Yjs'],
         github: 'https://github.com/byteGanYue/DocCollab',
@@ -59,7 +59,7 @@ const projects = [
         slug: 'taxi-bigdata-visualization',
         title: '出租车大数据可视化系统',
         description: '云端出租车大数据可视化平台，支持区域监控、热点分析、行车轨迹、预测分析等功能。',
-        image: '/assets/taxi-bigdata-visualization.svg',
+        image: '/assets/taxi-bigdata-visualization.jpg',
         category: 'webapp',
         tags: ['Vue.js', 'ECharts', 'WebGL', '大数据可视化'],
         github: 'https://github.com/wenhuilan/22-QG-headend/tree/master',
@@ -73,7 +73,7 @@ const projects = [
         slug: 'differential-privacy-ai',
         title: '差分隐私分布式AI系统',
         description: '基于差分隐私的分布式人工智能系统，提供数据变化趋势可视化、智能分析、自动分类聚类等功能。',
-        image: '/assets/differential-privacy-ai.svg',
+        image: '/assets/differential-privacy-ai.jpg',
         category: 'webapp',
         tags: ['Vue.js', 'ECharts', 'Python', '差分隐私'],
         github: 'https://github.com/wenhuilan/22-QG-headend/tree/master',
@@ -88,7 +88,7 @@ const projects = [
         slug: 'myapp-miniprogram',
         title: '招新小程序',
         description: '基于微信小程序的招新管理系统，支持报名、审核、通知等功能，提供便捷的移动端体验。',
-        image: '/assets/myapp-miniprogram.svg',
+        image: '/assets/miniprogram-login.png',
         category: 'mobile',
         tags: ['微信小程序', 'JavaScript', '云开发', 'WXML'],
         github: 'https://github.com/wenhuilan/22-QG-headend/tree/master',
@@ -102,7 +102,7 @@ const projects = [
         slug: 'qg-software-upgrade',
         title: 'QG 软件升级助手平台',
         description: '面向工业软件的综合性升级管理平台，支持软件发布、更新、下载、授权等全生命周期管理。',
-        image: '/assets/qg-software-upgrade.svg',
+        image: '/assets/qg-software-upgrade.jpg',
         category: 'webapp',
         tags: ['Vue.js', 'Node.js', 'MySQL', 'WebSocket'],
         github: 'https://github.com/wenhuilan/22-QG-headend/tree/master',
@@ -153,7 +153,7 @@ export default function ClientProjectsPage() {
                         项目展示
                     </h1>
                     <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                        探索我的项目作品集，涵盖前端开发、全栈应用、移动端开发等多个领域
+                        探索我的项目作品集，涵盖web应用、全栈应用、移动端开发等多个领域
                     </p>
                 </motion.div>
 
@@ -212,20 +212,20 @@ export default function ClientProjectsPage() {
                                     <div className="relative h-48 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-gray-700 dark:to-gray-600 overflow-hidden">
                                         <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20" />
                                         <div className="absolute inset-0 flex items-center justify-center">
-                                            {project.image.endsWith('.svg') ? (
+                                            {/* {project.image.endsWith('.svg') ? ( */}
                                                 <img
                                                     src={project.image}
                                                     alt={project.title}
-                                                    className="w-24 h-24 opacity-80"
+                                                    className="w-50 h-40 opacity-80 rounded-lg"
                                                 />
-                                            ) : (
+                                            {/* ) : (
                                                 <div className="text-6xl opacity-20">
                                                     {project.category === 'frontend' && <CodeBracketIcon />}
                                                     {project.category === 'fullstack' && <ServerIcon />}
                                                     {project.category === 'mobile' && <DevicePhoneMobileIcon />}
                                                     {project.category === 'web' && <GlobeAltIcon />}
                                                 </div>
-                                            )}
+                                            )} */}
                                         </div>
                                         {project.featured && (
                                             <div className="absolute top-4 right-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium">

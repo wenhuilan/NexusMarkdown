@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Link from 'next/link';
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import {
     ArrowLeftIcon,
     StarIcon,
@@ -104,7 +105,7 @@ export default function ClientProjectDetail({ project }: Props) {
                                             <img
                                                 src={project.image}
                                                 alt={project.title}
-                                            className="w-32 h-32 opacity-80 rounded-lg"
+                                            className="w-50 h-60 opacity-80 rounded-lg"
                                             />
                                         
                                     </div>
@@ -174,31 +175,46 @@ export default function ClientProjectDetail({ project }: Props) {
                             效果图展示
                         </h2>
                         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-200 dark:border-gray-700">
-                            {/* 主图 */}
-                            <div className="mb-6">
-                                <div className="relative h-96 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 rounded-xl overflow-hidden">
-                                    <div className="absolute inset-0 flex items-center justify-center">
-                                        <img src={project.screenshots[selectedImage].image} alt={project.screenshots[selectedImage].title} className="w-full h-full object-contain" />
-                                    </div>
+                            {/* 主图轮播 */}
+                            <div className="mb-6 relative flex items-center justify-center">
+                                <button
+                                    onClick={() => setSelectedImage(selectedImage > 0 ? selectedImage - 1 : project.screenshots.length - 1)}
+                                    className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 dark:bg-gray-900/80 rounded-full p-2 shadow hover:bg-white dark:hover:bg-gray-900"
+                                    aria-label="上一张"
+                                >
+                                    <ChevronLeftIcon className="w-7 h-7 text-gray-700 dark:text-gray-300" />
+                                </button>
+                                <div className="relative h-96 w-full flex items-center justify-center">
+                                    <img
+                                        src={project.screenshots[selectedImage].image}
+                                        alt={project.screenshots[selectedImage].title}
+                                        className="max-h-80 max-w-full rounded-lg shadow-md object-contain mx-auto"
+                                    />
                                 </div>
+                                <button
+                                    onClick={() => setSelectedImage(selectedImage < project.screenshots.length - 1 ? selectedImage + 1 : 0)}
+                                    className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 dark:bg-gray-900/80 rounded-full p-2 shadow hover:bg-white dark:hover:bg-gray-900"
+                                    aria-label="下一张"
+                                >
+                                    <ChevronRightIcon className="w-7 h-7 text-gray-700 dark:text-gray-300" />
+                                </button>
                             </div>
-
-                            {/* 缩略图 */}
-                            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                            {/* 缩略图轮播 */}
+                            <div className="flex gap-3 justify-center items-center">
                                 {project.screenshots.map((screenshot, index) => (
                                     <button
                                         key={index}
-                                        onClick={() =>{
-                                            console.log('index:', index);
-                                            setSelectedImage(index)
-                                        }}
-                                        className={`relative h-24 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 rounded-lg overflow-hidden transition-all ${selectedImage === index
-                                            ? 'ring-2 ring-blue-500 scale-105'
-                                            : 'hover:scale-105'
-                                            }`}
+                                        onClick={() => setSelectedImage(index)}
+                                        className={`relative h-20 w-32 rounded-lg overflow-hidden border-2 transition-all duration-200 ${selectedImage === index ? 'border-blue-500 scale-105' : 'border-transparent hover:scale-105'}`}
+                                        aria-label={`切换到第${index + 1}张`}
                                     >
-                                        <div className="absolute inset-0 flex items-center justify-center">
-                                            <img src={project.screenshots[index].image} alt={project.screenshots[index].title} className="w-full h-full object-contain" />
+                                        <img
+                                            src={screenshot.image}
+                                            alt={screenshot.title}
+                                            className="w-full h-full object-cover opacity-80"
+                                        />
+                                        <div className="absolute bottom-0 left-0 right-0 bg-black/40 text-xs text-white px-2 py-1 truncate">
+                                            {screenshot.title}
                                         </div>
                                     </button>
                                 ))}
