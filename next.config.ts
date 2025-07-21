@@ -50,6 +50,7 @@ const nextConfig = {
       "images.unsplash.com",
       "cdn.jsdelivr.net",
       "raw.githubusercontent.com",
+      "qiniu.yj-dis.top"
     ],
     // 图片格式优化
     formats: ["image/webp", "image/avif"],

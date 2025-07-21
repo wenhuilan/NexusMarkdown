@@ -180,8 +180,10 @@ export default function OptimizedImage({
           transition={{ duration: 0.5 }}
         >
           {isExternal ? (
-            <img
+            <Image
               src={processedSrc}
+              height={height}
+              width={width}
               alt={alt}
               title={title}
               loading={priority ? 'eager' : 'lazy'}

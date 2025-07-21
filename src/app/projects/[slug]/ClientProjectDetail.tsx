@@ -1,14 +1,14 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import {
     ArrowLeftIcon,
     StarIcon,
     EyeIcon,
-    ArrowTopRightOnSquareIcon,
     CodeBracketIcon,
     GlobeAltIcon,
     DevicePhoneMobileIcon,
@@ -32,7 +32,8 @@ interface Project {
     demo: string;
     featured: boolean;
     stars: number;
-    views: number; screenshots: { title: string; description: string; image: string; }[]; 
+    views: number;
+     screenshots: { title: string; description: string; image: string; }[]; 
     features: string[];
     challenges: string[];
     solutions: string[];
@@ -44,12 +45,13 @@ interface Props {
 
 export default function ClientProjectDetail({ project }: Props) {
     const [selectedImage, setSelectedImage] = useState(0);
-    const [isMobile, setIsMobile] = useState(false);
+    // isMobile变量用于将来的响应式布局，暂时未使用
+    // const [_isMobile, setIsMobile] = useState(false);
      console.log('project:', project);
     // 检测移动端设备
     useEffect(() => {
         const checkMobile = () => {
-            setIsMobile(window.innerWidth <= 768);
+            // setIsMobile(window.innerWidth <= 768);
         };
 
         checkMobile();
@@ -102,9 +104,11 @@ export default function ClientProjectDetail({ project }: Props) {
                                 <div className="relative h-64 lg:h-80 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-gray-700 dark:to-gray-600 rounded-xl overflow-hidden">
                                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20" />
                                     <div className="absolute inset-0 flex items-center justify-center">
-                                            <img
+                                            <Image
                                                 src={project.image}
                                                 alt={project.title}
+                                                width={50}
+                                                height={60}
                                             className="w-50 h-60 opacity-80 rounded-lg"
                                             />
                                         
@@ -185,10 +189,13 @@ export default function ClientProjectDetail({ project }: Props) {
                                     <ChevronLeftIcon className="w-7 h-7 text-gray-700 dark:text-gray-300" />
                                 </button>
                                 <div className="relative h-96 w-full flex items-center justify-center">
-                                    <img
+                                    <Image
                                         src={project.screenshots[selectedImage].image}
                                         alt={project.screenshots[selectedImage].title}
-                                        className="max-h-80 max-w-full rounded-lg shadow-md object-contain mx-auto"
+                                        width={800}
+                                        height={600}
+                                        className="rounded-lg shadow-md object-contain mx-auto"
+                                        style={{ maxHeight: '320px', width: 'auto' }} // 替代 Tailwind 的 max-h-80
                                     />
                                 </div>
                                 <button
@@ -208,9 +215,11 @@ export default function ClientProjectDetail({ project }: Props) {
                                         className={`relative h-20 w-32 rounded-lg overflow-hidden border-2 transition-all duration-200 ${selectedImage === index ? 'border-blue-500 scale-105' : 'border-transparent hover:scale-105'}`}
                                         aria-label={`切换到第${index + 1}张`}
                                     >
-                                        <img
+                                        <Image
                                             src={screenshot.image}
                                             alt={screenshot.title}
+                                            width="800"
+                                            height={600}
                                             className="w-full h-full object-cover opacity-80"
                                         />
                                         <div className="absolute bottom-0 left-0 right-0 bg-black/40 text-xs text-white px-2 py-1 truncate">

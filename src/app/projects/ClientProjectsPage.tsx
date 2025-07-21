@@ -3,8 +3,8 @@
 import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
-    CodeBracketIcon,
     GlobeAltIcon,
     DevicePhoneMobileIcon,
     ServerIcon,
@@ -116,7 +116,8 @@ const projects = [
 
 export default function ClientProjectsPage() {
     const [selectedCategory, setSelectedCategory] = useState('all');
-    const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+    // 保留hoveredProject状态，因为它在项目卡片的鼠标事件中使用
+
     const [isMobile, setIsMobile] = useState(false);
 
     // 检测移动端设备
@@ -204,28 +205,21 @@ export default function ClientProjectsPage() {
                                     delay: isMobile ? 0 : index * 0.1
                                 }}
                                 className="group relative"
-                                onMouseEnter={() => !isMobile && setHoveredProject(project.id)}
-                                onMouseLeave={() => !isMobile && setHoveredProject(null)}
                             >
                                 <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-200 dark:border-gray-700">
                                     {/* 项目图片 */}
                                     <div className="relative h-48 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-gray-700 dark:to-gray-600 overflow-hidden">
                                         <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20" />
                                         <div className="absolute inset-0 flex items-center justify-center">
-                                            {/* {project.image.endsWith('.svg') ? ( */}
-                                                <img
+                                          
+                                                <Image
                                                     src={project.image}
                                                     alt={project.title}
+                                                    width={50}
+                                                    height={40}
                                                     className="w-50 h-40 opacity-80 rounded-lg"
                                                 />
-                                            {/* ) : (
-                                                <div className="text-6xl opacity-20">
-                                                    {project.category === 'frontend' && <CodeBracketIcon />}
-                                                    {project.category === 'fullstack' && <ServerIcon />}
-                                                    {project.category === 'mobile' && <DevicePhoneMobileIcon />}
-                                                    {project.category === 'web' && <GlobeAltIcon />}
-                                                </div>
-                                            )} */}
+                                           
                                         </div>
                                         {project.featured && (
                                             <div className="absolute top-4 right-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium">

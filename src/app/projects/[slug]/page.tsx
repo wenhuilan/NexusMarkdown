@@ -76,9 +76,11 @@ const projects = [
         stars: 89,
         views: 1567,
         screenshots: [
-            '/assets/qg-login.png',
-            '/assets/qg-dashboard.png',
-            '/assets/qg-software-list.png',
+            {
+                title: '登录与功能总览',
+                description: '简洁的登录界面与功能总览，支持富文本编辑、实时协作、版本管理和多级文件管理。',
+                image: '/assets/qg-login.png',
+            }
         ],
         features: [
             '全生命周期管理',
@@ -304,10 +306,12 @@ const projects = [
         stars: 234,
         views: 3456,
         screenshots: [
-            '/assets/taxi-dashboard.png',
-            '/assets/taxi-heatmap.png',
-            '/assets/taxi-trajectory.png',
-            '/assets/taxi-analysis.png',
+            {
+                title: '登录与功能总览',
+                description: '',
+                image: '',
+            },
+
         ],
         features: [
             '区域监控',
@@ -404,9 +408,11 @@ const projects = [
         stars: 156,
         views: 2341,
         screenshots: [
-            '/assets/dp-ai-dashboard.png',
-            '/assets/dp-ai-visualization.png',
-            '/assets/dp-ai-analysis.png',
+            {
+                title: '登录与功能总览',
+                description: '',
+                image: '',
+            }
         ],
         features: [
             '差分隐私保护',
@@ -429,89 +435,9 @@ const projects = [
             '微服务架构设计',
         ],
     },
+
     {
         id: 5,
-        slug: 'industrial-software',
-        title: '工业软件解决方案',
-        description: '面向工业领域的软件解决方案，包含设备监控、数据分析、生产管理等功能模块。',
-        fullDescription: `工业软件解决方案是一个面向工业领域的综合性软件平台。
-
-## 项目特色
-
-- **设备监控**: 实时监控工业设备运行状态
-- **数据分析**: 生产数据分析和趋势预测
-- **生产管理**: 生产计划和生产过程管理
-- **质量控制**: 产品质量检测和控制
-- **报表系统**: 自动生成各类生产报表
-- **预警系统**: 设备故障预警和维护提醒
-
-## 技术架构
-
-### 前端技术栈
-- **框架**: Vue.js 3 + TypeScript
-- **UI 组件**: Element Plus
-- **图表库**: ECharts
-- **状态管理**: Pinia
-- **构建工具**: Vite
-
-### 后端技术栈
-- **框架**: Node.js + Express
-- **数据库**: MySQL
-- **实时通信**: WebSocket
-- **消息队列**: Redis
-- **文件存储**: 本地存储
-
-## 核心功能
-
-1. **设备管理**: 设备信息管理和状态监控
-2. **数据采集**: 实时数据采集和存储
-3. **生产计划**: 生产计划制定和执行
-4. **质量控制**: 质量检测和异常处理
-5. **报表分析**: 数据分析和报表生成
-6. **系统管理**: 用户权限和系统配置
-
-## 技术亮点
-
-- **实时监控**: WebSocket 实时数据监控
-- **数据可视化**: ECharts 数据可视化展示
-- **模块化设计**: 可扩展的模块化架构
-- **工业标准**: 符合工业软件标准规范`,
-        image: '/assets/industrial-software.svg',
-        category: 'fullstack',
-        tags: ['Vue.js', 'Node.js', 'MySQL', 'WebSocket'],
-        github: 'https://github.com/wenhuilan/22-QG-headend/tree/master/%E5%B7%A5%E4%B8%9A%E8%BD%AF%E4%BB%B6%E9%A1%B9%E7%9B%AE',
-        demo: '/projects/industrial-software',
-        featured: false,
-        stars: 1,
-        views: 45,
-        screenshots: [
-            '/assets/industrial-monitor.png',
-            '/assets/industrial-dashboard.png',
-            '/assets/industrial-report.png',
-        ],
-        features: [
-            '设备实时监控',
-            '生产数据分析',
-            '质量控制管理',
-            '自动报表生成',
-            '故障预警系统',
-            '用户权限管理',
-        ],
-        challenges: [
-            '大量设备数据监控',
-            '实时数据处理',
-            '工业标准兼容',
-            '系统稳定性保证',
-        ],
-        solutions: [
-            '分布式数据采集架构',
-            'WebSocket 实时通信',
-            '符合工业软件标准',
-            '高可用性系统设计',
-        ],
-    },
-    {
-        id: 6,
         slug: 'myapp-miniprogram',
         title: '招新小程序',
         description: '基于微信小程序的招新管理系统，支持报名、审核、通知等功能，提供便捷的移动端体验。',
@@ -612,81 +538,24 @@ const projects = [
             '微信官方安全机制',
         ],
     },
-    {
-        id: 7,
-        slug: 'ai-chat-assistant',
-        title: 'AI Chat Assistant',
-        description: '基于 OpenAI API 的智能聊天助手，支持多轮对话、代码高亮、Markdown 渲染等功能。',
-        fullDescription: `AI Chat Assistant 是一个基于 OpenAI API 的智能聊天助手，提供自然语言交互体验。
 
-## 项目特色
-
-- **智能对话**: 基于 GPT 模型的多轮对话能力
-- **代码高亮**: 支持多种编程语言的语法高亮
-- **Markdown 渲染**: 完整的 Markdown 格式支持
-- **实时响应**: 流式响应，实时显示生成内容
-- **历史记录**: 保存对话历史，支持继续对话
-- **多主题**: 支持明暗主题切换
-
-## 技术实现
-
-- **API 集成**: OpenAI GPT API
-- **流式响应**: Server-Sent Events (SSE)
-- **状态管理**: React Context + useReducer
-- **代码高亮**: Prism.js
-- **Markdown**: react-markdown
-- **UI 框架**: Tailwind CSS + Headless UI
-
-## 核心功能
-
-1. **智能对话**: 支持自然语言交互
-2. **代码生成**: 生成各种编程语言的代码
-3. **问题解答**: 回答技术问题和概念解释
-4. **文本处理**: 文本翻译、总结、润色等
-5. **创意写作**: 故事创作、诗歌生成等`,
-        image: '/assets/ai-chat.png',
-        category: 'frontend',
-        tags: ['React', 'OpenAI', 'TypeScript', 'Vite'],
-        github: 'https://github.com/yourusername/ai-chat-assistant',
-        demo: '/projects/ai-chat-assistant',
-        featured: true,
-        stars: 89,
-        views: 1567,
-        screenshots: [
-            '/assets/ai-chat-home.png',
-            '/assets/ai-chat-conversation.png',
-            '/assets/ai-chat-settings.png',
-        ],
-        features: [
-            '智能对话系统',
-            '代码高亮显示',
-            'Markdown 渲染',
-            '流式响应',
-            '历史记录',
-            '主题切换',
-        ],
-        challenges: [
-            'API 调用优化',
-            '流式数据处理',
-            '状态管理复杂度',
-            '用户体验设计',
-        ],
-        solutions: [
-            '使用 SSE 实现流式响应',
-            'React Context 管理全局状态',
-            '防抖和节流优化性能',
-            '渐进式加载和骨架屏',
-        ],
-    },
-    // 其他项目数据...
 ];
 
-interface Props {
-    params: { slug: string };
+export async function generateStaticParams() {
+    // 返回所有项目的slug作为可能的路径参数
+    return projects.map(project => ({
+        slug: project.slug
+    }));
 }
 
+interface Props {
+    params: Promise<{ slug: string }>;
+
+};
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const project = projects.find(p => p.slug === params.slug);
+    const { slug } = await params;
+    const project = projects.find(p => p.slug === slug);
 
     if (!project) {
         return {
@@ -701,8 +570,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 }
 
-export default function ProjectDetailPage({ params }: Props) {
-    const project = projects.find(p => p.slug === params.slug);
+export default async function ProjectDetailPage({ params }: Props) {
+    const { slug } = await params;
+    const project = projects.find(p => p.slug === slug);
 
     if (!project) {
         notFound();
