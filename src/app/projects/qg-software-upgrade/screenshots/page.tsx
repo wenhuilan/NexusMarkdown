@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
-
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
 export const metadata: Metadata = {
     title: 'QG 软件升级助手平台 - 效果图展示',
     description: 'QG 软件升级助手平台的界面效果图展示，包含登录界面、管理后台、软件列表等功能页面。',
@@ -11,25 +11,25 @@ const screenshots = [
     {
         title: '登录界面',
         description: '现代化的登录界面，支持邮箱登录和密码找回功能',
-        image: '/assets/qg-login.png',
+        image: `${basePath}/qg-login.png`,
         features: ['邮箱登录', '密码找回', '记住登录', '安全验证']
     },
     {
         title: '管理后台',
         description: '软件管理和用户管理后台界面，提供完整的系统管理功能',
-        image: '/assets/qg-dashboard.png',
+        image: `${basePath}/qg-dashboard.png`,
         features: ['用户管理', '软件发布', '系统监控', '数据统计']
     },
     {
         title: '软件列表',
         description: '软件产品展示和筛选界面，支持多种筛选和搜索功能',
-        image: '/assets/qg-software-list.png',
+        image: `${basePath}/qg-software-list.png`,
         features: ['产品展示', '分类筛选', '关键词搜索', '排序功能']
     },
     {
         title: '软件详情',
         description: '软件详情页面，包含版本信息和下载功能',
-        image: '/assets/qg-software-detail.png',
+        image: `${basePath}/qg-software-detail.png`,
         features: ['版本信息', '更新日志', '下载功能', '购买授权']
     }
 ];

@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
-
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
 export const metadata: Metadata = {
     title: '差分隐私分布式AI系统 - 效果图展示',
     description: '差分隐私分布式AI系统的界面效果图展示，包含数据处理中心、数据可视化、智能分析等功能页面。',
@@ -11,25 +11,25 @@ const screenshots = [
     {
         title: '数据处理中心',
         description: '差分隐私数据处理可视化中心，支持多步骤数据处理流程',
-        image: '/assets/dp-ai-dashboard.png',
+        image: `${basePath}/dp-ai-dashboard.png`,
         features: ['数据上传', '迭代模式选择', '数据选择', '数据交换', '权重设置']
     },
     {
         title: '数据可视化',
         description: '多维度数据可视化展示，包含关系图、散点图、聚合图等',
-        image: '/assets/dp-ai-visualization.png',
+        image: `${basePath}/dp-ai-visualization.png`,
         features: ['关系图', '散点图', '数据聚合图', '趋势分析图', '交互式图表']
     },
     {
         title: '智能分析',
         description: 'AI 智能分析结果展示，自动分类、聚类、预测等功能',
-        image: '/assets/dp-ai-analysis.png',
+        image: `${basePath}/dp-ai-analysis.png`,
         features: ['自动分类', '聚类分析', '预测分析', '异常检测', '模式识别']
     },
     {
         title: '隐私保护',
         description: '差分隐私保护机制和隐私预算管理界面',
-        image: '/assets/dp-ai-privacy.png',
+        image: `${basePath}/dp-ai-privacy.png`,
         features: ['噪声注入', '隐私预算管理', '查询响应', '隐私保护评估']
     }
 ];

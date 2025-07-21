@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import ClientProjectDetail from './ClientProjectDetail';
-
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
 // 项目数据（与 ClientProjectsPage 保持一致）
 const projects = [
     {
@@ -67,7 +67,7 @@ const projects = [
 - **安全机制**: 硬件指纹识别、软件授权验证
 - **性能优化**: 数据库索引优化、缓存策略
 - **用户体验**: 响应式设计、流畅交互`,
-        image: '/assets/qg-software-upgrade.svg',
+        image: `${basePath}/qg-software-upgrade.svg`,
         category: 'fullstack',
         tags: ['Vue.js', 'Node.js', 'MySQL', 'WebSocket'],
         github: 'https://github.com/wenhuilan/qg-software-upgrade',
@@ -79,7 +79,7 @@ const projects = [
             {
                 title: '登录与功能总览',
                 description: '简洁的登录界面与功能总览，支持富文本编辑、实时协作、版本管理和多级文件管理。',
-                image: '/assets/qg-login.png',
+                image: `${basePath}/qg-login.png`,
             }
         ],
         features: [
@@ -151,7 +151,7 @@ const projects = [
 - **WebSocket 实时通信**: 低延迟的数据同步
 - **模块化架构**: 前后端分离，易于扩展
 - **响应式设计**: 适配各种设备尺寸`,
-        image: '/assets/doccollab.jpg',
+        image: `${basePath}s/doccollab.jpg`,
         category: 'fullstack',
         tags: ['React', 'NestJS', 'MongoDB', 'Yjs', 'Quill'],
         github: 'https://github.com/byteGanYue/DocCollab',
@@ -163,37 +163,37 @@ const projects = [
             {
                 title: '登录与功能总览',
                 description: '简洁的登录界面与功能总览，支持富文本编辑、实时协作、版本管理和多级文件管理。',
-                image: '/assets/doccollab-login.jpg',
+                image: `${basePath}/doccollab-login.jpg`,
             },
             {
                 title: '首页与文档导航',
                 description: '首页展示团队协作入口、文档管理、个性化主题和版本历史，便于快速上手。',
-                image: '/assets/doccollab-home.jpg',
+                image: `${basePath}/doccollab-home.jpg`,
             },
             {
                 title: '实时协同编辑',
                 description: '多人同时在线编辑文档，支持代码高亮、评论与富文本格式，提升团队协作效率。',
-                image: '/assets/doccollab-editor.jpg',
+                image: `${basePath}/doccollab-editor.jpg`,
             },
             {
                 title: '版本结构对比',
                 description: '强大的版本管理与结构化对比功能，轻松追踪文档历史变更。',
-                image: '/assets/doccollab-diff.jpg',
+                image: `${basePath}/doccollab-diff.jpg`,
             },
             {
                 title: '文档归档与管理',
                 description: '支持文档归档、标签、权限与统计，便于团队知识沉淀和高效检索。',
-                image: '/assets/doccollab-archive.jpg',
+                image: `${basePath}/doccollab-archive.jpg`,
             },
             {
                 title: 'AI 文档摘要',
                 description: '集成 AI 智能摘要与内容提炼，提升文档阅读与理解效率。',
-                image: '/assets/doccollab-ai.jpg',
+                image: `${basePath}/doccollab-ai.jpg`,
             },
             {
                 title: '全文搜索',
                 description: '支持文档内容的全文检索，快速定位所需信息。',
-                image: '/assets/doccollab-search.jpg',
+                image: `${basePath}/doccollab-search.jpg`,
             },
         ],
         features: [
@@ -297,7 +297,7 @@ const projects = [
 - **智能算法**: 机器学习算法支持
 - **高并发**: 支持万级并发访问
 - **可扩展**: 微服务架构设计`,
-        image: '/assets/taxi-bigdata-visualization.svg',
+        image: `${basePath}/taxi-bigdata-visualization.svg`,
         category: 'frontend',
         tags: ['Vue.js', 'ECharts', 'WebGL', '大数据可视化'],
         github: 'https://github.com/wenhuilan/taxi-bigdata-visualization',
@@ -399,7 +399,7 @@ const projects = [
 - **实时可视化**: 实时数据更新和可视化展示
 - **隐私保护**: 在数据分析过程中保护用户隐私
 - **智能分析**: 自动化的数据分析和洞察`,
-        image: '/assets/differential-privacy-ai.svg',
+        image: `${basePath}/differential-privacy-ai.svg`,
         category: 'frontend',
         tags: ['Vue.js', 'ECharts', 'Python', '差分隐私'],
         github: 'https://github.com/wenhuilan/differential-privacy-ai',
@@ -482,7 +482,7 @@ const projects = [
 - **云开发**: 基于微信云开发平台
 - **用户体验**: 流畅的移动端体验
 - **数据安全**: 微信官方数据安全保障`,
-        image: '/assets/miniprogram-login.png',
+        image: `${basePath}/miniprogram-login.png`,
         category: 'mobile',
         tags: ['微信小程序', 'JavaScript', '云开发', 'WXML'],
         github: 'https://github.com/wenhuilan/22-QG-headend/tree/master/%E6%8B%9B%E6%96%B0%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%A1%B9%E7%9B%AE/myApp',
@@ -494,27 +494,27 @@ const projects = [
             {
                 title: '登录界面',
                 description: '登录界面',
-                image: '/assets/miniprogram-login.png',
+                image: `${basePath}/miniprogram-login.png`,
             },
             {
                 title: '入口界面',
                 description: '入口界面',
-                image: '/assets/miniprogram-home.png',
+                image: `${basePath}/miniprogram-home.png`,
             },
             {
                 title: '主页界面',
                 description: '主页界面',
-                image: '/assets/miniprogram-main.png',
+                image: `${basePath}/miniprogram-main.png`,
             },
             {
                 title: '活动界面',
                 description: '活动界面',
-                image: '/assets/miniprogram-activity.png',
+                image: `${basePath}/miniprogram-activity.png`,
             },
             {
                 title: '预约管理界面',
                 description: '预约管理界面',
-                image: '/assets/miniprogram-appointment.png',
+                image: `${basePath}/miniprogram-appointment.png`,
             }
         ],
         features: [

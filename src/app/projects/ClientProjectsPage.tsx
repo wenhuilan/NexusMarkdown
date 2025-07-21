@@ -14,6 +14,7 @@ import {
     ArrowTopRightOnSquareIcon
 } from '@heroicons/react/24/outline';
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
 // 项目分类
 const categories = [
     { id: 'all', name: '全部', icon: SparklesIcon },
@@ -30,7 +31,7 @@ const projects = [
         slug: 'oxygen-blog',
         title: 'Oxygen Blog 博客平台',
         description: '基于 Next.js 15、TypeScript 和 Markdown 的现代化个人博客平台，支持多主题、响应式设计、内容管理和静态导出。',
-        image: '/assets/blog.jpg',
+        image: `${basePath}/blog.jpg`,
         category: 'webapp',
         tags: ['Next.js', 'TypeScript', 'Markdown', 'Tailwind CSS'],
         github: 'https://github.com/wenhuilan/NexusMarkdown',
@@ -45,7 +46,7 @@ const projects = [
         slug: 'doccollab',
         title: 'DocCollab 协同富文本编辑器',
         description: '基于 React + NestJS 的协同知识库系统，支持实时协作、富文本编辑、版本历史等功能。',
-        image: '/assets/doccollab.jpg',
+        image: `${basePath}/doccollab.jpg`,
         category: 'fullstack',
         tags: ['React', 'NestJS', 'MongoDB', 'Yjs'],
         github: 'https://github.com/byteGanYue/DocCollab',
@@ -59,7 +60,7 @@ const projects = [
         slug: 'taxi-bigdata-visualization',
         title: '出租车大数据可视化系统',
         description: '云端出租车大数据可视化平台，支持区域监控、热点分析、行车轨迹、预测分析等功能。',
-        image: '/assets/taxi-bigdata-visualization.jpg',
+        image: `${basePath}/taxi-bigdata-visualization.jpg`,
         category: 'webapp',
         tags: ['Vue.js', 'ECharts', 'WebGL', '大数据可视化'],
         github: 'https://github.com/wenhuilan/22-QG-headend/tree/master',
@@ -73,7 +74,7 @@ const projects = [
         slug: 'differential-privacy-ai',
         title: '差分隐私分布式AI系统',
         description: '基于差分隐私的分布式人工智能系统，提供数据变化趋势可视化、智能分析、自动分类聚类等功能。',
-        image: '/assets/differential-privacy-ai.jpg',
+        image: `${basePath}/differential-privacy-ai.jpg`,
         category: 'webapp',
         tags: ['Vue.js', 'ECharts', 'Python', '差分隐私'],
         github: 'https://github.com/wenhuilan/22-QG-headend/tree/master',
@@ -88,7 +89,7 @@ const projects = [
         slug: 'myapp-miniprogram',
         title: '招新小程序',
         description: '基于微信小程序的招新管理系统，支持报名、审核、通知等功能，提供便捷的移动端体验。',
-        image: '/assets/miniprogram-login.png',
+        image: `${basePath}/miniprogram-login.png`,
         category: 'mobile',
         tags: ['微信小程序', 'JavaScript', '云开发', 'WXML'],
         github: 'https://github.com/wenhuilan/22-QG-headend/tree/master',
@@ -102,7 +103,7 @@ const projects = [
         slug: 'qg-software-upgrade',
         title: 'QG 软件升级助手平台',
         description: '面向工业软件的综合性升级管理平台，支持软件发布、更新、下载、授权等全生命周期管理。',
-        image: '/assets/qg-software-upgrade.jpg',
+        image: `${basePath}/qg-software-upgrade.jpg`,
         category: 'webapp',
         tags: ['Vue.js', 'Node.js', 'MySQL', 'WebSocket'],
         github: 'https://github.com/wenhuilan/22-QG-headend/tree/master',

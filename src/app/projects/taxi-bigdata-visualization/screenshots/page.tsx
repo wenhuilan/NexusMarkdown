@@ -6,36 +6,36 @@ export const metadata: Metadata = {
     title: '出租车大数据可视化系统 - 效果图展示',
     description: '出租车大数据可视化系统的界面效果图展示，包含区域监控、热点分析、行车轨迹、异常检测等功能页面。',
 };
-
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
 const screenshots = [
     {
         title: '大数据可视化平台',
         description: '云端出租车大数据可视化平台，支持区域监控、热点分析、行车轨迹、预测分析等功能',
-        image: '/assets/taxi-dashboard.png',
+        image: `${basePath}/taxi-dashboard.png`,
         features: ['区域监控', '热点分析', '行车轨迹', '预测分析', '天气主题']
     },
     {
         title: '区域监控',
         description: '实时监控各区域车流量和分布情况，支持广州出租车流量监控',
-        image: '/assets/taxi-heatmap.png',
+        image: `${basePath}/taxi-heatmap.png`,
         features: ['车流量监控', '车辆分布', '流量统计', '区域对比', '时间轴控制']
     },
     {
         title: '热点分析',
         description: '热力图展示载客热点和流量分布，支持载客热点流向图分析',
-        image: '/assets/taxi-trajectory.png',
+        image: `${basePath}/taxi-trajectory.png`,
         features: ['载客热点', '流量热力图', '热点流向', '热点预测', '3D 热力图']
     },
     {
         title: '行车轨迹',
         description: '车辆历史路径可视化和轨迹分析，支持轨迹回放功能',
-        image: '/assets/taxi-analysis.png',
+        image: `${basePath}/taxi-analysis.png`,
         features: ['历史路径', '轨迹回放', '路径分析', '轨迹聚类', '实时轨迹']
     },
     {
         title: '异常检测',
         description: '异常车辆识别和监控，支持异常行为检测和实时告警',
-        image: '/assets/taxi-anomaly.png',
+        image: `${basePath}/taxi-anomaly.png`,
         features: ['异常车辆', '异常行为', '实时告警', '异常分析', '预警系统']
     }
 ];
