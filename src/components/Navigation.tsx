@@ -20,13 +20,22 @@ export default function Navigation() {
 
   /**
    * 监听滚动事件，添加滚动效果
+   * 优化移动端性能，使用节流函数
    */
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 10);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -39,27 +48,28 @@ export default function Navigation() {
     }
     return pathname.startsWith(href);
   };
-  
+
   const navItems = [
     { href: '/', label: '首页' },
     { href: '/blogs', label: '博客' },
+    { href: '/projects', label: '项目' },
     { href: '/about', label: '关于' },
   ];
-  
+
   /**
    * 切换移动端菜单显示状态
    */
   const toggleMobileMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-  
+
   /**
    * 关闭移动端菜单
    */
   const closeMobileMenu = () => {
     setIsMenuOpen(false);
   };
-  
+
   return (
     <nav className={navigationStyle.className} style={navigationStyle.style}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -69,7 +79,7 @@ export default function Navigation() {
             <span className="text-2xl font-bold text-gray-900 dark:text-white">{emojy}</span>
             <span className="text-xl font-bold text-gray-900 dark:text-white">{name}</span>
           </Link>
-          
+
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
             <div className="flex space-x-8">
@@ -77,11 +87,10 @@ export default function Navigation() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                    pathname === item.href
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${pathname === item.href
                       ? 'text-primary dark:text-primary'
                       : 'text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary'
-                  }`}
+                    }`}
                 >
                   {item.label}
                 </Link>
@@ -92,19 +101,19 @@ export default function Navigation() {
               <ThemeToggle />
             </div>
           </div>
-          
+
           {/* Mobile menu button and theme controls */}
           <div className="md:hidden flex items-center space-x-2">
             <ThemeToggle />
-            <button 
+            <button
               onClick={toggleMobileMenu}
               className="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary p-2 transition-colors"
               aria-label="切换菜单"
             >
-              <svg 
-                className={`w-6 h-6 transition-transform duration-200 ${isMenuOpen ? 'rotate-90' : ''}`} 
-                fill="none" 
-                stroke="currentColor" 
+              <svg
+                className={`w-6 h-6 transition-transform duration-200 ${isMenuOpen ? 'rotate-90' : ''}`}
+                fill="none"
+                stroke="currentColor"
                 viewBox="0 0 24 24"
               >
                 {isMenuOpen ? (
@@ -116,22 +125,20 @@ export default function Navigation() {
             </button>
           </div>
         </div>
-        
+
         {/* Mobile menu */}
-        <div className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
-          isMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
-        }`}>
+        <div className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${isMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
+          }`}>
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={closeMobileMenu}
-                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
-                  pathname === item.href
+                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${pathname === item.href
                     ? 'text-primary dark:text-primary'
                     : 'text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary hover:bg-gray-50/80 dark:hover:bg-gray-800/50'
-                }`}
+                  }`}
               >
                 {item.label}
               </Link>
