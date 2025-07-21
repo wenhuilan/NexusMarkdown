@@ -151,7 +151,7 @@ const projects = [
 - **WebSocket 实时通信**: 低延迟的数据同步
 - **模块化架构**: 前后端分离，易于扩展
 - **响应式设计**: 适配各种设备尺寸`,
-        image: `${basePath}s/doccollab.jpg`,
+        image: `${basePath}/doccollab.jpg`,
         category: 'fullstack',
         tags: ['React', 'NestJS', 'MongoDB', 'Yjs', 'Quill'],
         github: 'https://github.com/byteGanYue/DocCollab',
